@@ -1,27 +1,12 @@
-// import React from "react"
-
-// function App() {
-//     return (
-//         <>
-//             <div className='test'>
-//                 <h1>Hello world</h1>
-//                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptate possimus amet animi quia non.</p>
-//             </div>
-//             <div>
-//                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptate possimus amet animi quia non.</p>
-//             </div>
-//         </>
-//     )
-// }
-
-// export default App
-
 import React from 'react'
+import CssBaseline from '@mui/material/CssBaseline';
+import Header from '../Header/Header';
 
 const App = () => {
   return (
     <>
-        <h1>Hello world</h1>
+        <CssBaseline />
+        <Header/>
     </>
   )
 }
