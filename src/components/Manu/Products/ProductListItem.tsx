@@ -15,11 +15,13 @@ export type ProductProps = {
 
 type State = {
     count: number
+    color: string
 }
 
 class ProductListItem extends Component<ProductProps> {
     state = {
         count: 1,
+        color: 'green',
     }
 
     onDecrementClick = () => {
@@ -32,6 +34,12 @@ class ProductListItem extends Component<ProductProps> {
         this.setState((prevState: State) => ({
             count: prevState.count + 1,
         }))
+    }
+
+    changeColor = () => {
+        this.setState({
+            color: 'red',
+        })
     }
 
     render () {
@@ -59,6 +67,8 @@ class ProductListItem extends Component<ProductProps> {
                         <TextField size='small' value={this.state.count} variant='outlined' />
                         <Button variant='contained' onClick={this.onIncrementClick}>+</Button>
                     </div>
+                    <p>Color: {this.state.color}</p>
+                    <button onClick={this.changeColor}>Color change</button>
                 </CardContent>
                 <CardActions className='btn-wrap'>
                     <Button variant='outlined'>Add to cart</Button>
