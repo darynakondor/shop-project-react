@@ -63,9 +63,9 @@ class ProductListItem extends Component<ProductProps> {
                     <div className="product-features">Capacity: {capacity}Gb</div>
                     <div className="product-price">$ {price}</div>
                     <div className="product-quantity">
-                        <Button variant='contained' onClick={this.onDecrementClick}>-</Button>
+                        <Button variant='contained' onClick={this.onDecrementClick} disabled={this.state.count <= 1}>-</Button>
                         <TextField size='small' value={this.state.count} variant='outlined' />
-                        <Button variant='contained' onClick={this.onIncrementClick}>+</Button>
+                        <Button variant='contained' onClick={this.onIncrementClick} disabled={this.state.count >= 10}>+</Button>
                     </div>
                     <p>Color: {this.state.color}</p>
                     <button onClick={this.toggleChangeColor}>Color change</button>
