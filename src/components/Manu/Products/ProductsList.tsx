@@ -20,16 +20,18 @@ const ProductList = (props: Props) => {
                 alignItems="center"
                 spacing={3}
             >
-                {productArray.map(({name, description, capacity, type, price}: ProductProps) =>
-                    <Grid item xs={12} sm={6} md={4}>
-                        <ProductListItem 
-                            name={name}
-                            description={description}
-                            capacity={capacity} 
-                            type={type} 
-                            price={price}
-                        />
-                    </Grid>
+                {productArray.map(({id, name, description, capacity, type, price}: ProductProps) =>
+                    (
+                        <Grid item xs={12} sm={6} md={4} key={id}>
+                            <ProductListItem 
+                                name={name}
+                                description={description}
+                                capacity={capacity} 
+                                type={type} 
+                                price={price}
+                            />
+                        </Grid>
+                    )
                 )}
             </Grid>
         </>

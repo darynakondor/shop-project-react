@@ -4,6 +4,7 @@ import React from 'react'
 import './ProductListItem.scss'
 
 export type ProductProps = {
+    id?: number
     name: string
     description: string
     type: string
