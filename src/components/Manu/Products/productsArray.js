@@ -51,7 +51,7 @@ const productsArray = [
         type: 'phone',
         capacity: 64,
         price: 600,
-        image: "/images/iphone-red.jpg",
+        image: "/images/iphone-red.png",
     },
 ]
 
