@@ -10,6 +10,7 @@ export type ProductProps = {
     type: string
     capacity: number
     price: number
+    image: string
 }
 
 const ProductListItem = ({
@@ -18,11 +19,16 @@ const ProductListItem = ({
     type,
     capacity,
     price,
+    image
+
 }: ProductProps) => {
 
   return (
     <Card>
         <CardContent>
+            <div className='product-img'>
+                <img src={image} alt="" />
+            </div>
             <h3 className='product-title'>{name}</h3>
             <div className="product-description">{description}</div>
             <div className="product-features">Type: {type}</div>
