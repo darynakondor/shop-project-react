@@ -36,10 +36,10 @@ class ProductListItem extends Component<ProductProps> {
         }))
     }
 
-    changeColor = () => {
-        this.setState({
-            color: 'red',
-        })
+    toggleChangeColor = () => {
+        this.setState((prevState: State) => ({
+            color: prevState.color === 'red' ? 'green' : 'red'
+        }))
     }
 
     render () {
@@ -68,7 +68,7 @@ class ProductListItem extends Component<ProductProps> {
                         <Button variant='contained' onClick={this.onIncrementClick}>+</Button>
                     </div>
                     <p>Color: {this.state.color}</p>
-                    <button onClick={this.changeColor}>Color change</button>
+                    <button onClick={this.toggleChangeColor}>Color change</button>
                 </CardContent>
                 <CardActions className='btn-wrap'>
                     <Button variant='outlined'>Add to cart</Button>
