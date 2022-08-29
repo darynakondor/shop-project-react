@@ -27,9 +27,6 @@ const ProductListItem = ({
     const onIncrementClick = () => (setCount((prevState:number) => prevState + 1))
     const onDecrementClick = () => (setCount((prevState:number) => prevState - 1))
 
-    const [color, setColor] = useState<string>('green')
-    const toggleChangeColor = () => (setColor((prevState:string) => prevState === 'red' ? 'green' : 'red'))
-
     return (
         <Card>
             <CardContent>
@@ -42,12 +39,10 @@ const ProductListItem = ({
                 <div className="product-features">Capacity: {capacity}Gb</div>
                 <div className="product-price">$ {price}</div>
                 <div className="product-quantity">
-                    <Button variant='contained' onClick={onDecrementClick}>-</Button>
+                    <Button variant='contained' onClick={onDecrementClick} disabled={count <= 1}>-</Button>
                     <TextField size='small' value={count} variant='outlined' />
-                    <Button variant='contained' onClick={onIncrementClick}>+</Button>
+                    <Button variant='contained' onClick={onIncrementClick} disabled={count >= 10}>+</Button>
                 </div>
-                <p>Color: {color}</p>
-                <button onClick={toggleChangeColor}>Change color</button>
             </CardContent>
             <CardActions className='btn-wrap'>
                 <Button variant='outlined'>Add to cart</Button>
