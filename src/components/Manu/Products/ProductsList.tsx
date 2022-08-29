@@ -5,9 +5,15 @@ import productArray from './productsArray'
 import {ProductProps} from './ProductListItem'
 
 
-type Props = {}
+type Props = {
+    addProductToCart: (
+        totalCount: number,
+        totalPrice: number
+    ) => void
+}
 
-const ProductList = (props: Props) => {
+
+const ProductList = ({addProductToCart}: Props) => {
     return (
         <>
             <Typography variant='h4' textAlign='center' margin={3}>

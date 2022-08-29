@@ -13,20 +13,24 @@ export type ProductProps = {
     image: string
 }
 
+type CartDataProps = {
+    totalCount: number
+    totalPrice: number
+}
+
 const ProductListItem = ({
     name,
     description,
     type,
     capacity,
     price,
-    image
+    image,
 
 }: ProductProps) => {
     const [count, setCount] = useState<number>(1)
-
     const onIncrementClick = () => (setCount((prevState:number) => prevState + 1))
     const onDecrementClick = () => (setCount((prevState:number) => prevState - 1))
-
+    
     return (
         <Card>
             <CardContent>
