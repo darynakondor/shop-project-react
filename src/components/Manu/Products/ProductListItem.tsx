@@ -1,5 +1,4 @@
 import { Button, Card, CardActions, CardContent, TextField } from '@mui/material'
-import { green } from '@mui/material/colors'
 import React, { useState } from 'react'
 import './ProductListItem.scss'
 
@@ -13,10 +12,6 @@ export type ProductProps = {
     image: string
 }
 
-type CartDataProps = {
-    totalCount: number
-    totalPrice: number
-}
 
 const ProductListItem = ({
     name,
