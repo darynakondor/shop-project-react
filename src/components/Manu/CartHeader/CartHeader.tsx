@@ -1,8 +1,5 @@
 import React from 'react'
-import {keys} from 'lodash'
 import productsArray from '../Products/productsArray'
-import { count } from 'console'
-import { color } from '@mui/system'
 
 type Props = {
     productsInCart: {
