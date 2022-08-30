@@ -3,19 +3,22 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 
-type productsInCartProps = {
-  [id: number]: number
+type ProductsInCartProps = {
+  [id: number]: number,
 }
 
-const App = () => {
-  const [productsInCart, setProductsInCart] = useState<productsInCartProps> ({
-    1: 1,
-    2: 1,
-  })
 
-  const addProductToCart = () => {
-    console.log('test')
-  }
+const App = () => {
+  const [productsInCart, setProductsInCart] = useState<ProductsInCartProps> ({})
+
+  const addProductToCart = (id: number, count: number) => {
+    setProductsInCart((prevState:ProductsInCartProps) => ( {
+      ...prevState,
+      [id]: count,
+    }))
+  } 
+
+  
 
   return (
     <>

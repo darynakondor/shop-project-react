@@ -1,18 +1,18 @@
 import React from 'react'
 import { Grid, Typography } from '@mui/material'
 import ProductListItem from './ProductListItem'
-import productArray from './productsArray'
+import productsArray from './productsArray'
 
 
 type Props = {
     addProductToCart: (
-        count: number,
-        price: number
+        id: number,
+        count: number
     ) => void
 }
 
 type ProductProps = {
-    id?: number
+    id: number
     name: string
     description: string
     type: string
@@ -35,10 +35,11 @@ const ProductList = ({addProductToCart}: Props) => {
                 alignItems="center"
                 spacing={3}
             >
-                {productArray.map(({id, name, description, capacity, type, price, image}: ProductProps) =>
+                {productsArray.map(({id, name, description, capacity, type, price, image}: ProductProps) =>
                     (
                         <Grid item xs={12} sm={6} md={4} key={id}>
                             <ProductListItem 
+                                id={id}
                                 name={name}
                                 description={description}
                                 capacity={capacity} 

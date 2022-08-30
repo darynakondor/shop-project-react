@@ -4,8 +4,8 @@ import {Container} from '@mui/material'
 
 type Props = {
     addProductToCart: (
-        count: number,
-        price: number
+        id: number,
+        count: number
     ) => void
 }
 

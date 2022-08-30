@@ -12,7 +12,7 @@ import CartHeader from 'components/Manu/CartHeader/CartHeader'
 
 type Props = {
     productsInCart: {
-        [id: number]: number
+        [id: number]: number,
     }
 }
 
