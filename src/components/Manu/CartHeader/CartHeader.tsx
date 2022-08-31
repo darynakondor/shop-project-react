@@ -1,4 +1,5 @@
 import React from 'react'
+import {keys} from 'lodash'
 import productsArray from '../Products/productsArray'
 
 type Props = {
@@ -12,11 +13,11 @@ const CartHeader = ({
 }: Props) => {
     return (
         <div>
-            {productsArray.map(({id, name}) => (
-            <div   key={id}>
+            {keys(productsInCart).map((productId) => (
+            <div   key={productId}>
 
-                    {name}:  
-                    <span style={{ marginLeft: "7px", fontWeight: "700", color: "rgb(255, 139, 400)"}}>{productsInCart[id]}</span> 
+                    {productsArray[parseInt(productId) - 1].name}: {' '} 
+                    <span style={{ marginLeft: "5px", fontWeight: "700", color: "rgb(255, 139, 400)"}}>{productsInCart[parseInt(productId)]}</span> 
 
                 </div>
             ))}
