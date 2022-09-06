@@ -1,5 +1,6 @@
 import { Product } from 'components/Manu/Products/productsArray'
-import { Grid, Card, CardContent } from '@mui/material'
+import { Grid, Card, CardContent, Button } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 import React from 'react'
 
 type Props = {
@@ -23,6 +24,12 @@ const CartProductListItemExtend = ({ productCount, product }: Props) => {
                     <p>Price for one item: {product.price}</p>
                     <p>Count: {productCount}</p>
                 </CardContent>
+                <Button
+                    variant="contained"
+                    style={{ marginLeft: '15px', marginBottom: '20px' }}
+                >
+                    <DeleteIcon />
+                </Button>
             </Card>
         </Grid>
     )

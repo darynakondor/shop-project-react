@@ -8,9 +8,10 @@ type ProductsInCartProps = {
 }
 
 const App = () => {
-    const [productsInCart, setProductsInCart] = useState<ProductsInCartProps>(
-        {}
-    )
+    const [productsInCart, setProductsInCart] = useState<ProductsInCartProps>({
+        1: 1,
+        2: 1,
+    })
 
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInCartProps) => ({
@@ -19,10 +20,19 @@ const App = () => {
         }))
     }
 
+    const removeProductFromCart = (id: number) => {
+        setProductsInCart((prevState: ProductsInCartProps) => {
+            let prevProductsInCart = { ...prevState }
+            delete prevProductsInCart[id]
+            return prevProductsInCart
+        })
+    }
+
     return (
         <>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+            <button onClick={() => removeProductFromCart(2)}>Delete</button>
             <Main
                 addProductToCart={addProductToCart}
                 productsInCart={productsInCart}

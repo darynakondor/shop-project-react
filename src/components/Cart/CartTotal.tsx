@@ -20,7 +20,6 @@ const CartTotal = ({
 }: Props) => {
     return (
         <div>
-            {' '}
             Total{' '}
             {keys(productsInCart).reduce(
                 (total, productId) =>
