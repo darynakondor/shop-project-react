@@ -9,17 +9,13 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Menu from 'components/Manu/Menu'
 import CartHeader from 'components/Manu/CartHeader/CartHeader'
 
-
 type Props = {
     productsInCart: {
-        [id: number]: number,
+        [id: number]: number
     }
 }
 
-const Header = ({
-    productsInCart
-}: Props) => {
-    
+const Header = ({ productsInCart }: Props) => {
     return (
         <AppBar position="static">
             <Container>
@@ -29,14 +25,19 @@ const Header = ({
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 2 }}>
+                        sx={{ mr: 2 }}
+                    >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                     Fake Shop
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexGrow: 1 }}
+                    >
+                        Fake Shop
                     </Typography>
                     <Menu />
-                    <CartHeader productsInCart={productsInCart}/>
+                    <CartHeader productsInCart={productsInCart} />
                 </Toolbar>
             </Container>
         </AppBar>
@@ -44,4 +45,3 @@ const Header = ({
 }
 
 export default Header
-

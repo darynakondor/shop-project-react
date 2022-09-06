@@ -4,16 +4,15 @@ import CartProductList from 'components/Cart/CartProductList'
 
 type Props = {
     productsInCart: {
-        [id: number]: number,
+        [id: number]: number
     }
 }
 
-const CartHeader = ({
-    productsInCart}: Props) => {
+const CartHeader = ({ productsInCart }: Props) => {
     return (
         <div>
-            <CartProductList productsInCart={productsInCart}/>
-            <CartTotal productsInCart={productsInCart}/>
+            <CartProductList productsInCart={productsInCart} />
+            <CartTotal productsInCart={productsInCart} />
         </div>
     )
 }

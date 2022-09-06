@@ -1,17 +1,14 @@
 import React from 'react'
 import ProductList from 'components/Manu/Products/ProductsList'
-import {Container} from '@mui/material'
+import { Container } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 import CartPage from 'pages/CartPage/CartPage'
 
 type Props = {
-    addProductToCart: (
-        id: number,
-        count: number
-    ) => void
+    addProductToCart: (id: number, count: number) => void
     productsInCart: {
-    [id: number]: number
-    } 
+        [id: number]: number
+    }
 }
 
 const Main = ({ addProductToCart, productsInCart }: Props) => {
@@ -19,8 +16,16 @@ const Main = ({ addProductToCart, productsInCart }: Props) => {
         <>
             <Container>
                 <Routes>
-                    <Route path='/' element={<ProductList addProductToCart={addProductToCart} /> } />
-                    <Route path='cart' element={<CartPage productsInCart={productsInCart} /> } />
+                    <Route
+                        path="/"
+                        element={
+                            <ProductList addProductToCart={addProductToCart} />
+                        }
+                    />
+                    <Route
+                        path="cart"
+                        element={<CartPage productsInCart={productsInCart} />}
+                    />
                 </Routes>
             </Container>
         </>
