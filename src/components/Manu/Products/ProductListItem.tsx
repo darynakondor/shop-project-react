@@ -50,7 +50,7 @@ const ProductListItem = ({
                 <Quantity
                     count={count}
                     onDecrementClick={onDecrementClick}
-                    onIncrementClick={onDecrementClick}
+                    onIncrementClick={onIncrementClick}
                 />
             </CardContent>
             <CardActions className="btn-wrap">
