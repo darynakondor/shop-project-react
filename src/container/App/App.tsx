@@ -27,6 +27,13 @@ const App = () => {
         )
     }
 
+    const changeProductQuantity = (id: number, count: number) => {
+        setProductsInCart((prevState: ProductsInCartProps) => ({
+            ...prevState,
+            [id]: count,
+        }))
+    }
+
     return (
         <>
             <CssBaseline />
@@ -35,6 +42,7 @@ const App = () => {
                 addProductToCart={addProductToCart}
                 removeProductFromCart={removeProductFromCart}
                 productsInCart={productsInCart}
+                changeProductQuantity={changeProductQuantity}
             />
         </>
     )
