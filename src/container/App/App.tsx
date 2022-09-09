@@ -8,11 +8,21 @@ type ProductsInCartProps = {
     [id: number]: number
 }
 
+type ProductsLikeStateProps = {
+    [id: number]: boolean
+}
+
 const App = () => {
     const [productsInCart, setProductsInCart] = useState<ProductsInCartProps>({
         1: 1,
         2: 1,
     })
+
+    const [productsLikeState, setProductsLikeState] =
+        useState<ProductsLikeStateProps>({
+            1: true,
+            2: true,
+        })
 
     const addProductToCart = (id: number, count: number) => {
         setProductsInCart((prevState: ProductsInCartProps) => ({
@@ -34,6 +44,13 @@ const App = () => {
         }))
     }
 
+    const toggleProductsLiked = (id: number, isLiked: boolean) => {
+        setProductsLikeState((prevState: ProductsLikeStateProps) => ({
+            ...prevState,
+            [id]: isLiked ? false : true,
+        }))
+    }
+
     return (
         <>
             <CssBaseline />
@@ -43,6 +60,8 @@ const App = () => {
                 removeProductFromCart={removeProductFromCart}
                 productsInCart={productsInCart}
                 changeProductQuantity={changeProductQuantity}
+                productsLikeState={productsLikeState}
+                toggleProductsLiked={toggleProductsLiked}
             />
         </>
     )

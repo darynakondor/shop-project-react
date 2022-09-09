@@ -3,12 +3,12 @@ import { Grid, Typography } from '@mui/material'
 import ProductListItem from './ProductListItem'
 import productsArray from './productsArray'
 
-
 type Props = {
-    addProductToCart: (
-        id: number,
-        count: number
-    ) => void
+    addProductToCart: (id: number, count: number) => void
+    toggleProductsLiked: (id: number, isLiked: boolean) => void
+    productsLikeState: {
+        [id: number]: boolean
+    }
 }
 
 type ProductProps = {
@@ -21,11 +21,14 @@ type ProductProps = {
     image: string
 }
 
-
-const ProductList = ({addProductToCart}: Props) => {
+const ProductList = ({
+    addProductToCart,
+    productsLikeState,
+    toggleProductsLiked,
+}: Props) => {
     return (
         <>
-            <Typography variant='h4' textAlign='center' margin={3}>
+            <Typography variant="h4" textAlign="center" margin={3}>
                 Product List
             </Typography>
             <Grid
@@ -35,18 +38,28 @@ const ProductList = ({addProductToCart}: Props) => {
                 alignItems="center"
                 spacing={3}
             >
-                {productsArray.map(({id, name, description, capacity, type, price, image}: ProductProps) =>
-                    (
+                {productsArray.map(
+                    ({
+                        id,
+                        name,
+                        description,
+                        capacity,
+                        type,
+                        price,
+                        image,
+                    }: ProductProps) => (
                         <Grid item xs={12} sm={6} md={4} key={id}>
-                            <ProductListItem 
+                            <ProductListItem
                                 id={id}
                                 name={name}
                                 description={description}
-                                capacity={capacity} 
-                                type={type} 
+                                capacity={capacity}
+                                type={type}
                                 price={price}
                                 image={image}
                                 addProductToCart={addProductToCart}
+                                isLiked={productsLikeState[id]}
+                                toggleProductsLiked={toggleProductsLiked}
                             />
                         </Grid>
                     )

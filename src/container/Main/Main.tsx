@@ -8,10 +8,14 @@ import Reviews from 'components/Reviews/Reviews'
 type Props = {
     addProductToCart: (id: number, count: number) => void
     removeProductFromCart: (id: number) => void
+    toggleProductsLiked: (id: number, isLiked: boolean) => void
     productsInCart: {
         [id: number]: number
     }
     changeProductQuantity: (id: number, count: number) => void
+    productsLikeState: {
+        [id: number]: boolean
+    }
 }
 
 const Main = ({
@@ -19,6 +23,8 @@ const Main = ({
     productsInCart,
     removeProductFromCart,
     changeProductQuantity,
+    productsLikeState,
+    toggleProductsLiked,
 }: Props) => {
     return (
         <>
@@ -30,6 +36,8 @@ const Main = ({
                             <>
                                 <ProductList
                                     addProductToCart={addProductToCart}
+                                    productsLikeState={productsLikeState}
+                                    toggleProductsLiked={toggleProductsLiked}
                                 />
                                 <Reviews />
                             </>
