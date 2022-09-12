@@ -3,6 +3,9 @@ import { Grid, Card, CardContent, Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import React from 'react'
 import Quantity from 'components/Quantity/Quantity'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
 
 type Props = {
     productCount: number
@@ -17,6 +20,10 @@ const CartProductListItemExtend = ({
     removeProductFromCart,
     changeProductQuantity,
 }: Props) => {
+    const isLiked = useAppSelector(
+        (state) => state.productsLikeState[product.id]
+    )
+
     return (
         <Grid item xs={12} sm={6}>
             <Card>
@@ -28,6 +35,9 @@ const CartProductListItemExtend = ({
                             style={{ width: '150px', height: 'auto' }}
                         />
                     </div>
+                    <Button variant="outlined">
+                        {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </Button>
                     <div>{product.name}</div>
                     <p>Price for one item: {product.price}</p>
                     <p>Count: {productCount}</p>
